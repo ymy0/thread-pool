@@ -3,4 +3,5 @@ CC = g++ -std=c++11 -lpthread.h
 thread.o: Thread.cpp Thread.h
 	$(CC) -c Thread.cpp
 
-
+clean:
+	rm -f thread.o
