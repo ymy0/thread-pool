@@ -76,7 +76,7 @@ int ThreadPool::create()
 	return 0;
 }
 
-int Thread::pool::stop_all()
+int ThreadPool::stop_all()
 {
 	if(shutdown)
 	{
@@ -101,8 +101,8 @@ int Thread::pool::stop_all()
 }
 
 
-int CThreadPool::getTaskSize()  
+int ThreadPool::get_task_size()  
 {  
-    return m_deqTaskList.size();      
+    return task_list.size();      
 }  
 

@@ -37,7 +37,7 @@ class ThreadPool
 		static pthread_cond_t condition;
 	
 	protected:
-		static void* function(void* data);
+		static void* call_back(void* data);
 		static int move_to_idle(pthread_t tid);
 		static int move_to_busy(pthread_t tid);
 		int create();
