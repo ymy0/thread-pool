@@ -4,3 +4,4 @@
 
 /.vs/thread-pool/v16
 /.vs
+*.o
