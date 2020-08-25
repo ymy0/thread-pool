@@ -1,6 +1,6 @@
 #include "Thread.h"
 #include<iostream>
-
+#include<stdio.h>
 //using namespace std;
 
 void Task::set_id(int id)
@@ -14,14 +14,12 @@ int Task::get_id()
 	return task_id;
 }
 
-deque<Task*> ThreadPool::task_list;
-bool ThreadPool::shutdown=false;
-
 pthread_mutex_t ThreadPool::mutex = PTHREAD_MUTEX_INITIALZER;
 pthread_cond_t ThreadPool::condition= PTHREAD_COND_INITIALZER;
 
 ThreadPool::ThreadPool(int thread_number)
 {
+	shutdown = false;
 	this->thread_num=thrad_number;
 	cout<<"I will create "<<thread_num<<" threads"<<endl;
 	create();
