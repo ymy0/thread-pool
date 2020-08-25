@@ -48,6 +48,7 @@ void* ThreadPool::call_back(void* data)
 		task_list.pop_front();
 
 		task->run();
+		pthread_mutex_unlock(&mutex);
 	}
 	return (void*)0;
 }
