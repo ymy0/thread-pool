@@ -18,7 +18,7 @@ class Task
 	
 	public:
 		Task() = default;
-		Task(string &task_name):task_name(task_name),task_id(NULL){}
+		Task(string &task_name):task_name(task_name),task_id(0){}
 		virtual int run()=0;
 		void set_id(int id);
 		int get_id();
@@ -28,7 +28,7 @@ class Task
 class ThreadPool
 {
 	private:
-		static deque(Task*) task_list;
+		static deque<Task*> task_list;
 		static bool shutdown;//线程退出标志
 		int thread_num;
 		pthread_t *pthread_id;
