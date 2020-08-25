@@ -13,13 +13,13 @@ int Task::get_id()
 {
 	return task_id;
 }
-
+bool ThreadPool::shutdown = false;
+deque<Task*> ThreadPool::task_list;
 pthread_mutex_t ThreadPool::mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t ThreadPool::condition = PTHREAD_COND_INITIALIZER;
 
 ThreadPool::ThreadPool(int thread_number)
 {
-	shutdown = false;
 	this->thread_num = thread_number;
 	cout << "I will create " << thread_num << " threads" << endl;
 	create();
