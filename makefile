@@ -1,19 +1,12 @@
-CC = g++ -std=c++11 -lpthread.h
+CC = g++
+DD = -std=c++11 -lpthread
 
-client:client.o
-	$(CC) client.o -o client
+all: Client.cpp Service.cpp Thread.o
+	$(CC) Client.cpp -o client
+	$(CC) Service.cpp Thread.o -o server $(DD)
 
-server:service.o
-	$(CC) service.o -o server
-
-client.o:Client.cpp
-	$(CC) -c Client.cpp
-
-service.o:Service.cpp
-	$(CC) -c Service.cpp
-
-thread.o: Thread.cpp Thread.h
-	$(CC) -c Thread.cpp
+Thread.o: Thread.cpp
+	$(CC) -c Thread.cpp $(DD)
 
 clean:
 	rm -f *.o client server
